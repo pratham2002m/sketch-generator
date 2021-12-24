@@ -1,0 +1,43 @@
+{% extends 'photos/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    
+    <div class="card-container my-4 center">
+        <div class="title m-3">
+            <h1>{{photo.name}}</h1>
+        </div>
+        <div class="board">
+            <div class="m-3">
+                <h6>Name : <i>{{photo.name}}</h6>
+                <h6>Category : <i>{{photo.category}}</i></h6>
+            </div>
+            <div>
+                <img  class="full-size-img m-3" src="{{ photo.image.url }}" alt="">
+            </div>
+        </div>
+
+        <div>
+
+            <button type="button" class="btn btn-danger " data-bs-toggle="offcanvas" data-bs-target="#deleteWarning" aria-controls="offcanvasTop">Delete</button>
+            <button type="button" class="btn btn-success "><a style="color: white;" href="{{photo.image.url}}" download="{{photo.image.url}}">Download</a></button>
+    
+            <div class="offcanvas offcanvas-top center" tabindex="-1" id="deleteWarning" aria-labelledby="offcanvasTopLabel">
+                <div class="offcanvas-header">
+                    <h6 class="offcanvasTopLabel">Do you want to delete {{photo.name}} ?</h6>
+                </div>
+                <div class="offcanvas-body">
+                    <a href="{% url 'delete' photo.id %}" class="btn btn-danger m-3">Delete</a>
+                    <button type="button" class="btn btn-success m-3" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+       
+
+
+    </div>
+
+{% endblock %}

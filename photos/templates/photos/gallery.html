@@ -1,0 +1,167 @@
+{% extends 'photos/base.html' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block style %}
+
+<style>
+  #webName{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+  }
+
+  .wrap{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .btn{
+    width: 100%;
+  }
+
+ 
+  @media screen and (max-width:1200px) and (min-width:992px) {
+      .container-2{
+        margin-left: 0px;
+      }
+  }
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container px-3">
+
+      <!--  Heading  -->
+      <div class="row m-2 text-center">
+          <h2 id="webName">Welcome To Sketch Generator Gallery</h2>
+      </div>
+
+       <!--  Sidebar for category  -->
+        <div class="row">
+            <div class="col-2">
+
+                    <ul class="list-group list-group-flush my-2">
+                        <div class="dropdown center">
+                              <button class="btn btn-outline-dark dropdown-toggle"   type="button" id="category" data-bs-toggle="dropdown" aria-expanded="false">
+                                  All Images
+                              </button>
+                              <ul class="dropdown-menu" style="scroll-behavior: smooth;" aria-labelledby="category">
+                                    <li class="list-group-item">
+                                      <a href="{% url 'gallery' %}?category=None">All Images</a>
+                                    </li>
+                                    {% for category in categories %}
+                                  
+                                    <li class="list-group-item">
+                                      <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
+                                    </li>
+                                  {% endfor %}
+                              </ul>
+                        </div>
+                    </ul>
+
+                    <ul class="list-group list-group-flush my-2">
+                      <button class="btn btn-outline-dark"> <a href="{% url 'add' %}">Upload</a> </button>
+                    </ul> 
+
+            </div>
+        
+
+            <!--  Gallery  -->
+
+          <div class="container-2 col-10">
+
+                <div class="row">
+
+                  {% for photo in photos %}
+
+                      <div class="col-md-4">
+                          <div class="card m-1">
+                              <img  src="{{photo.image.url}}" class="card-img-top img-thumbnail" alt="...">
+                              <div class="card-body wrap">
+                                <h6 class="card-title text-center">{{photo.name}}</h6>
+                                <h6 style="display: none;" class="photoId" class="card-title">{{photo.category}}</h6>
+                                <a href="{% url 'photo' photo.id %}" class="btn btn-primary">View</a>
+                              </div>
+                            </div>
+                      </div>
+
+                    {% endfor %}
+
+                </div>
+              </div>
+        </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    
+  // Website Name Color Change
+  const randomGen = ()=>{
+    let rand = parseInt(255*Math.random()) ;
+    return rand ;
+  }
+  
+    text = document.getElementById("webName");
+    setInterval(()=>{
+      text.style.color = `rgb(${randomGen()},${randomGen()},${randomGen()})`
+    },1000)
+   
+
+    // Category Name Selection
+
+      let btn1 = document.querySelector("#category");
+      let h6 = document.querySelectorAll(".photoId");
+      let col2 = document.querySelectorAll(".col-2");
+      let col4 = document.querySelectorAll(".col-md-4");
+      let col10 = document.querySelectorAll(".col-10");
+
+      if(h6.length != 0){
+          let f = 0 ;
+          let check = h6[0].innerHTML ;
+          for(let i = 0; i < h6.length; i++ ){
+            if(h6[i].innerHTML != check){
+                f = 1 ;
+            }
+          }
+          btn1.innerHTML = check ;
+          if(f == 0){
+            btn1.innerHTML = check ;
+          }
+          else{
+            btn1.innerHTML = "All Images" ;
+          }
+      }
+      else{
+        btn1.innerHTML = "No Images" ;
+      }
+
+      // Responsive
+     
+        if(screen.width < 991){
+          col2.forEach((e)=>{
+            e.className = "col-12";
+          })
+        }
+
+        if(screen.width < 991){
+          col10.forEach((e)=>{
+            e.className = "col-12";
+          })
+        }
+
+        if(screen.width < 768){
+          col4.forEach((e)=>{
+            e.className = "col-md-6";
+          })
+        }
+      
+       
+</script>
+{% endblock %}
+
