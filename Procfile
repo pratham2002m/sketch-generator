@@ -1,1 +1,1 @@
-web: gunicorn sketch-generator.wsgi
+web: gunicorn photoalbum.wsgi
