@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$gl2hu@l+e$(=35yo*kdo_xws_)-f-f1%$5ak=c5ze2h4vgqxg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False 
 
 ALLOWED_HOSTS = ['sketch-generator.herokuapp.com','127.0.0.1']
 
