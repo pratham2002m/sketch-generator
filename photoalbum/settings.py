@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$gl2hu@l+e$(=35yo*kdo_xws_)-f-f1%$5ak=c5ze2h4vgqxg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['127.0.0.1','sketch-app.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','sketch-generator.herokuapp.com']
 
 
 # Application definition
@@ -129,7 +129,7 @@ STATICFILES = [
 ]
 
 MEDIA_ROOT =  os.path.join(BASE_DIR,'static/images')
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
