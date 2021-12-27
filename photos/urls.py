@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = [
     path('',views.gallery , name='gallery'),
-    path('photo/<int:pk>/',views.photo , name='photo'),
-    path('delete/<int:pk>/',views.delete , name='delete'),
-    url(f'^download/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
-    path('add/',views.add , name='add'),
+    # path('photo/<int:pk>/',views.photo , name='photo'),
+    # path('delete/<int:pk>/',views.delete , name='delete'),
+    # url(f'^download/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
+    # path('add/',views.add , name='add'),
 ]

@@ -40,7 +40,7 @@
           <h2 id="webName">Welcome To Sketch Generator Gallery</h2>
       </div>
 
-       <!--  Sidebar for category  -->
+        <!-- Sidebar for category 
         <div class="row">
             <div class="col-2">
 
@@ -70,8 +70,8 @@
             </div>
         
 
-            <!--  Gallery  -->
-
+              Gallery  -->
+<!-- 
           <div class="container-2 col-10">
 
                 <div class="row">
@@ -94,74 +94,74 @@
                 </div>
               </div>
         </div>
-</div>
+</div> -->
 
-{% endblock %}
+{% endblock %} 
 
 {% block script %}
-<script>
-    
-  // Website Name Color Change
-  const randomGen = ()=>{
-    let rand = parseInt(255*Math.random()) ;
-    return rand ;
-  }
-  
-    text = document.getElementById("webName");
-    setInterval(()=>{
-      text.style.color = `rgb(${randomGen()},${randomGen()},${randomGen()})`
-    },1000)
-   
-
-    // Category Name Selection
-
-      let btn1 = document.querySelector("#category");
-      let h6 = document.querySelectorAll(".photoId");
-      let col2 = document.querySelectorAll(".col-2");
-      let col4 = document.querySelectorAll(".col-md-4");
-      let col10 = document.querySelectorAll(".col-10");
-
-      if(h6.length != 0){
-          let f = 0 ;
-          let check = h6[0].innerHTML ;
-          for(let i = 0; i < h6.length; i++ ){
-            if(h6[i].innerHTML != check){
-                f = 1 ;
-            }
-          }
-          btn1.innerHTML = check ;
-          if(f == 0){
-            btn1.innerHTML = check ;
-          }
-          else{
-            btn1.innerHTML = "All Images" ;
-          }
-      }
-      else{
-        btn1.innerHTML = "No Images" ;
-      }
-
-      // Responsive
-     
-        if(screen.width < 991){
-          col2.forEach((e)=>{
-            e.className = "col-12";
-          })
-        }
-
-        if(screen.width < 991){
-          col10.forEach((e)=>{
-            e.className = "col-12";
-          })
-        }
-
-        if(screen.width < 768){
-          col4.forEach((e)=>{
-            e.className = "col-md-6";
-          })
-        }
-      
-       
-</script>
+//<script>
+//    
+//  // Website Name Color Change
+//  const randomGen = ()=>{
+//    let rand = parseInt(255*Math.random()) ;
+//    return rand ;
+//  }
+//  
+//    text = document.getElementById("webName");
+//    setInterval(()=>{
+//      text.style.color = `rgb(${randomGen()},${randomGen()},${randomGen()})`
+//    },1000)
+//   
+//
+//    // Category Name Selection
+//
+//      let btn1 = document.querySelector("#category");
+//      let h6 = document.querySelectorAll(".photoId");
+//      let col2 = document.querySelectorAll(".col-2");
+//      let col4 = document.querySelectorAll(".col-md-4");
+//      let col10 = document.querySelectorAll(".col-10");
+//
+//      if(h6.length != 0){
+//          let f = 0 ;
+//          let check = h6[0].innerHTML ;
+//          for(let i = 0; i < h6.length; i++ ){
+//            if(h6[i].innerHTML != check){
+//                f = 1 ;
+//            }
+//          }
+//          btn1.innerHTML = check ;
+//          if(f == 0){
+//            btn1.innerHTML = check ;
+//          }
+//          else{
+//            btn1.innerHTML = "All Images" ;
+//          }
+//      }
+//      else{
+//        btn1.innerHTML = "No Images" ;
+//      }
+//
+//      // Responsive
+//     
+//        if(screen.width < 991){
+//          col2.forEach((e)=>{
+//            e.className = "col-12";
+//          })
+//        }
+//
+//        if(screen.width < 991){
+//          col10.forEach((e)=>{
+//            e.className = "col-12";
+//          })
+//        }
+//
+//        if(screen.width < 768){
+//          col4.forEach((e)=>{
+//            e.className = "col-md-6";
+//          })
+//        }
+//      
+//       
+//</script>
 {% endblock %}
 

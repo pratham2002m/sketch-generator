@@ -11,26 +11,26 @@ import os
 # Create your views here.
 
 def gallery(req) : 
-    category = req.GET.get('category','None')
-    category = category[:len(category)]
-    # type = req.GET.get('type','-1')
-    categories = Category.objects.all()
-    photos = Photos.objects.all()
+    # category = req.GET.get('category','None')
+    # category = category[:len(category)]
+    # # type = req.GET.get('type','-1')
+    # categories = Category.objects.all()
+    # photos = Photos.objects.all()
     
    
-    # data = {'category':category , 'img_type' : type}
-    # print(type)
+    # # data = {'category':category , 'img_type' : type}
+    # # print(type)
     
-    if category != 'None' : 
-        category = Category.objects.get(name=category)
-        photos = Photos.objects.filter(category=category)
-    # if type != '-1' : 
-    #     photos = photos.filter(type=type)
-    categories = []
-    for photo in Photos.objects.all() : 
-        categories.append(photo.category)
-    context = {'categories' : categories , 'photos' : photos }
-    return render(req,'photos/gallery.html',context)
+    # if category != 'None' : 
+    #     category = Category.objects.get(name=category)
+    #     photos = Photos.objects.filter(category=category)
+    # # if type != '-1' : 
+    # #     photos = photos.filter(type=type)
+    # categories = []
+    # for photo in Photos.objects.all() : 
+    #     categories.append(photo.category)
+    # context = {'categories' : categories , 'photos' : photos }
+    return render(req,'photos/gallery.html')
 
 
 def add(req) : 
