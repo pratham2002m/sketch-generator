@@ -32,12 +32,12 @@ class Photos(models.Model) :
         ordering = ["category"]
         
     
-    # def save(self,*args,**kwargs) :
+    def save(self,*args,**kwargs) :
           
-    #     pil_img = Image.open(self.image)
-    #     cv_img = np.array(pil_img)
+        pil_img = Image.open(self.image)
+        cv_img = np.array(pil_img)
         
-    #     cartoon = cv_img
+        cartoon = cv_img
         
         
     #     #      Sketch 
@@ -77,15 +77,15 @@ class Photos(models.Model) :
         
      
         
-    #     im_pil = Image.fromarray(cartoon)
+        im_pil = Image.fromarray(cartoon)
         
-    #     buffer = BytesIO()
-    #     im_pil.save(buffer,format='png')
-    #     image_png = buffer.getvalue()
+        buffer = BytesIO()
+        im_pil.save(buffer,format='png')
+        image_png = buffer.getvalue()
 
-    #     self.image.save(str(self.image),ContentFile(image_png),save = False)
+        self.image.save(str(self.image),ContentFile(image_png),save = False)
         
-    #     super().save(*args,**kwargs)
+        super().save(*args,**kwargs)
     
     def __str__(self) :
         return self.name
