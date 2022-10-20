@@ -4,50 +4,52 @@
 
 {% block body %}
 
-    <div class="container">
-        
+<div class="card m-5">
+    <h1 class="text-center m-3" style="font-family:'Fasthand', cursive;">Lets Generate</h1>
+    <div class="card-body">
         <form method="POST" enctype="multipart/form-data" class="form">
 
             {% csrf_token %}
 
-            <div class="form-group m-3">
-                <label>Name : </label>
-                <input name = 'name' type="text" class="form-control">
-            </div>
+            <div class="mb-3 mx-3">
+                <input name = 'name' type="text" class="form-control" id="name" placeholder="Enter of the image">
+              </div>
 
 
-            <div class="form-group m-3">
-                <select name="convert" >
+            <div class="mb-3 mx-3">
+                <select class="form-select" name="convert" aria-label="Default select example">
+                    <option selected disabled>Select Choice of Image </option>
                     <option value="0">Original</option>
                     <option value="1">Sketch</option>
                     <option value="2">Cartoonify</option>
-                </select>
+                  </select>
             </div>
 
-            <div class="form-group m-3">
-                <label>Category : </label>
-               <select name="category">
-                   <option value="none">Not available</option>
-                   {% for category in categories %}
-                    <option value="{{category.id}}">{{category.name}}</option>
-                    {% endfor %}
-               </select>
+            <div class="mb-3 mx-3">
+                <select class="form-select" name="category" aria-label="Default select example">
+                    <option selected disabled>Select Existing Category of Image </option>
+                    <option value="none">Not available</option>
+                       {% for category in categories %}
+                        <option value="{{category.id}}">{{category.name}}</option>
+                        {% endfor %}
+                  </select>
             </div>
 
-            <div class="form-group m-3">
-                <label>New Category : </label>
-              <input name="new_category" type="text" class="form-control">
-            </div>
 
-            <div class="form-group m-3">
-                <label>Upload Image : </label>
-                <input name="image" type="file" class="form-control-file">
-            </div>
+            <div class="mb-3 mx-3">
+                <input name = 'new_category' type="text" class="form-control" id="new_category" placeholder="Enter New Category of Image">
+              </div>
+        
+              <div class="input-group mb-3 ">
+                <input type="file" name="image" class="form-control mx-3">
+              </div>
 
-            <button type="submit" class="btn btn-outline-dark m-3">Upload Image</button>
+            <div class="d-flex align-items-center justify-content-center m-4 w-100"><button type="submit" class="btn btn-outline-dark">Upload Image</button></div>
 
         </form>
-
     </div>
+  </div>
+
+   
 
 {% endblock %}
